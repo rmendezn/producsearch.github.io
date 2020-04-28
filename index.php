@@ -40,6 +40,11 @@
       </footer>
     </div>
 </div> -->
+<div>
+  <div>
+    <button class="btn btn-success" style="align-content: left" data-toggle="modal" data-target="#modalproductnew">+ New Product</button>
+  </div>
+</div>
 
 <div class="w3-row-padding w3-center w3-margin-top">
 <div class="w3-third" onclick="window.open('search.php','_self');">
@@ -64,7 +69,7 @@
   </div>
 </div>
 
-<div class="w3-third">
+<div class="w3-third" onclick="window.open('location.php','_self');">
   <div class="w3-card w3-container" style="min-height:350px">
   <h3> Locations </h3><br>
   <i class="fa fa-map-marker w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -76,6 +81,63 @@
 </div>
 </div>
 
+<div id="modalproductnew" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-theme-l1"> 
+        <span onclick="document.getElementById('modalproductnew').style.display='none'"
+        class="w3-button w3-display-topright">×</span>
+      </header>
+      <div class="w3-padding">
+        <div class="w3-container">
+          <div class="w3-row">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <label for="frmnameN">Product Name:</label>
+                <input type="text" id="frmnameN"></input>              
+            </div>
+          </div>
+          <div class="w3-row">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <label for="frmcodeN">Product Code:</label>
+                <input type="text" id="frmcodeN"></input>              
+            </div>
+          </div>
+          <div class="w3-row">
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <label for="frmpositionN">Position:</label>
+                <h2 class="w3-center">Slideshows</h2>
+                <div class="w3-content" style="max-width:800px;position:relative">
+
+                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1.jpg" style="width:100%">
+                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (2).jpg" style="width:100%">
+                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (3).jpg" style="width:100%">
+                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (4).jpg" style="width:100%">
+
+                <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
+                <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">❯</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="w3-container w3-theme-l1">
+        <button type="button" class="btn aComoBotones" data-dismiss="modal" onclick="addproductnew()">Add</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </footer>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.print.min.js"></script>
 <!--<div class="w3-container">
 <hr>
 <div class="w3-center">
@@ -531,35 +593,64 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
 }
 
-// Tabs
-function openCity(evt, cityName) {
-  var i;
-  var x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  var activebtn = document.getElementsByClassName("testbtn");
-  for (i = 0; i < x.length; i++) {
-    activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " w3-dark-grey";
+function addproductnew(){
+  var product = $('#frmnameN').val();
+  var code = $('#frmcodeN').val();
+  var position = $('#frmpositionN').val();
+
+  cadena = "product=" + product +
+           "&code=" + code +
+           "&position=" + position;
+
+  $.ajax({
+      type: 'POST',
+      url: 'addproductnew.php',
+      data: cadena,
+      success: function(response){
+        console.log(response);
+        if(response == '1'){
+          alert("The Product was added successful");
+          location.reload(true);
+        }
+        if(response=='2'){
+          alert("The product all ready exist. Please check !!!!");
+        }
+        if(response=='3'){
+          alert("The product didn't was created. Please check !!!!")
+        }
+      }
+  });
 }
 
-var mybtn = document.getElementsByClassName("testbtn")[0];
-mybtn.click();
+// Tabs
+// function openCity(evt, cityName) {
+//   var i;
+//   var x = document.getElementsByClassName("city");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";
+//   }
+//   var activebtn = document.getElementsByClassName("testbtn");
+//   for (i = 0; i < x.length; i++) {
+//     activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+//   }
+//   document.getElementById(cityName).style.display = "block";
+//   evt.currentTarget.className += " w3-dark-grey";
+// }
+
+// var mybtn = document.getElementsByClassName("testbtn")[0];
+// mybtn.click();
 
 // Accordions
-function myAccFunc(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+// function myAccFunc(id) {
+//   var x = document.getElementById(id);
+//   if (x.className.indexOf("w3-show") == -1) {
+//     x.className += " w3-show";
+//   } else { 
+//     x.className = x.className.replace(" w3-show", "");
+//   }
+// }
 
-// Slideshows
+//Slideshows
 var slideIndex = 1;
 
 function plusDivs(n) {
@@ -579,21 +670,21 @@ function showDivs(n) {
 
 showDivs(1);
 
-// Progress Bars
-function move() {
-  var elem = document.getElementById("myBar");   
-  var width = 5;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width == 100) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-      elem.innerHTML = width * 1  + '%';
-    }
-  }
-}
+// // Progress Bars
+// function move() {
+//   var elem = document.getElementById("myBar");   
+//   var width = 5;
+//   var id = setInterval(frame, 10);
+//   function frame() {
+//     if (width == 100) {
+//       clearInterval(id);
+//     } else {
+//       width++; 
+//       elem.style.width = width + '%'; 
+//       elem.innerHTML = width * 1  + '%';
+//     }
+//   }
+// }
 </script>
 
 </body>

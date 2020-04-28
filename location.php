@@ -42,64 +42,170 @@
       </footer>
     </div>
 </div> -->
+
+<?php
+
+require_once 'conexion.php';
+?>
 <br>
-<div id="cmbprod" class="form-group">
-      
-    <label class="justify-content-start" for="frmprod">Product: </label>
-
-      <input type="text" id="frmprod" onclick="cambio();" style="width: 50%"  title="Write the code or name to search." list="frmprodlista" name="prodlista" autocomplete="off"></input>
-      <datalist id="frmprodlista" autocomplete="off">
-      </datalist>
-
+<div>
+  <h3>Locations Created</h3>
 </div>
-
-<br>
-<div class="w3-container">
-  <div class="w3-center">
-    <div class="w3-row">
-      <div class="w3-col w3-container m3">
-        <h3>Rows: A, B, C...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Racks: 01, 02, 03...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Shelfs: 01, 02, 03...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Position: 01, 02 ,03...</h3>
-      </div>
-    </div>
-  </div>
+<div>
+  <button class="btn btn-success" style="align-content: left" data-toggle="modal" data-target="#modalLocation">+ New Location</button>
 </div>
-<br>
-<div id="prodsearch"></div>
+<table id="TblLoc" class="display nowrap" style="width: 100% !important;">
+    <thead>
+      <tr align="center">
+        <th>Row</th>
+        <th>Rack</th>
+        <th>Shelf</th>
+        <th>Position</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 1rem;">
+    <?php
+        $connC=conexion();
+          $cont = 1;
+          $sql1 = "SELECT l.id_location, l.rows, l.racks, l.shelfs, l.position, rpl.id_location FROM location l LEFT JOIN relprodloc rpl ON l.id_location = rpl.id_location ORDER BY rows ASC, racks ASC, shelfs ASC, position ASC";
+          $sqlquery1 = mysqli_query($connC,$sql1);
+        mysqli_close($connC);
+        while ($row = mysqli_fetch_array($sqlquery1))
+        {
+        echo "<tr>";
+        echo "<td align='center'>".$row['rows']."</td>";
+        echo "<td align='center'>".$row["racks"]."</td>";
+        echo "<td align='center'>".$row['shelfs']."</td>";
+        echo "<td align='center'>".$row['position']."</td>";
+        if($row['id_location']<>NULL){
+          echo "<td align='center'><i class='fa fa-ban'></i></td>";
+        }else{
+          echo "<td align='center'><i class='fa fa-check'></i></td>";
+        }
+        echo "</tr>";
+        $cont++;
+        } ?>
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
 
-
-<div id="modalRelocation" class="w3-modal">
+<div id="modalLocation" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top">
       <header class="w3-container w3-theme-l1"> 
-        <span onclick="document.getElementById('modalRelocation').style.display='none'"
+        <span onclick="document.getElementById('modalLocation').style.display='none'"
         class="w3-button w3-display-topright">×</span>
       </header>
       <div class="w3-padding">
-        <div class="w3-container">
-          <div class="w3-row">
-            <label for="frmnameProdC">Product Name:</label>
-            <input type='text' id='frmnameProdC' disabled></input>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <label for="frmrow">Row</label>
+              <select class="form-control" name="frmrow" id="frmrow">
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+                 <option value="G">G</option>
+                 <option value="H">H</option>
+                 <option value="I">I</option>
+                 <option value="J">J</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <label for="frmrack">Rack</label>
+              <select class="form-control" name="frmrack" id="frmrack">
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <label for="frmshelf">Shelf</label>
+              <select class="form-control" name="frmshelf" id="frmshelf">
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+              </select>
+            </div>
           </div>
-          <div class="w3-row">
-            <label for="frmlocationC">Actual Location:</label>
-            <input type='text' id='frmlocationC' disabled></input>
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <label for="frmposition">Position</label>
+              <select class="form-control" name="frmposition" id="frmposition">
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
       <footer class="w3-container w3-theme-l1">
-        <button type="button" class="btn aComoBotones" data-dismiss="modal" onclick="changelocation()">Add</button>
+        <button type="button" class="btn aComoBotones" data-dismiss="modal" onclick="addlocation()">Add</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </footer>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.print.min.js"></script>
+
+<script>
+$('#TblLoc').DataTable({
+        "dom": '<lf<t>ip>',
+        "searching": false,
+        "pageLength": 15,
+        "lengthMenu": [15, 20, 25, 30],
+        "targets": 'no-sort',
+        "bSort": false,
+        "order": [],
+        "language": {
+            "emptyTable": "No hay datos disponibles",
+            "lengthMenu": "Mostrar _MENU_ ",
+            "info": "Mostrando _START_ hasta _END_ de _TOTAL_ entries",
+            "infoEmpty": " ",
+            "paginate": {
+                "previous": "Atras",
+                "next": "Siguiente"
+            }
+        }
+      });
+</script>
+
 <!--<div class="w3-row-padding w3-center w3-margin-top">
 <div class="w3-third" onclick="window.open('search.php','_self');">
   <div class="w3-card w3-container" style="min-height:350px">
@@ -578,15 +684,14 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script> 
 <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap.min.js"></script>
 
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.1.0/js/buttons.print.min.js"></script> -->
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -655,51 +760,33 @@
       }
     }
 
-    function loadrelprod(){
-      var idrel = $('#idrel').val();
-      cadena = "idrel=" + idrel;
+    function addlocation(){
+      var row = $('#frmrow').val();
+      var rack = $('#frmrack').val();
+      var shelf = $('#frmshelf').val();
+      var position = $('#frmposition').val();
+
+      cadena = "row=" + row +
+           "&rack=" + rack +
+           "&shelf=" + shelf +
+           "&position=" + position;
+
       $.ajax({
-        type:"POST",
-        url:"findrel.php",
-        data:cadena,
-        success:function(r){
-          if(r){
-            d=r.split('||');
-            $('#frmtitulo').val(d[0]);
-            $('#frminformacion').val(d[1]);
-            $('#frmfechainicio').val(d[2]);
-            $('#frmfechafin').val(d[3]);
-            if(d[4]=="0"){
-              document.getElementById("frmmostrar2").checked=false;
-              document.getElementById("textusuario2").hidden=true;
-              $('#textusuario2').val("0");
+          type: 'POST',
+          url: 'addlocation.php',
+          data: cadena,
+          success: function(response){
+            console.log(response);
+            if(response == '1'){
+              alert("The Location was added successful");
+              location.reload(true);
             }else{
-              document.getElementById("frmmostrar2").checked=true;
-              document.getElementById("textusuario2").hidden=false;
-              $('#textusuario2').val(d[4]);
+              alert("The location didn't was added. Please check !!!!")
             }
-            $('#frmmostrar').val(d[5]);
-            if(d[5]=='0'){
-              document.getElementById("frmmostrar1").checked =false;
-            }else{
-              document.getElementById("frmmostrar1").checked =true;
-            }
-            $('#frmidmensaje').val(d[6]);
-      
-          }else{
-            alert("No se encontro el Mensaje!!!");
           }
-        }
-
       });
+
     }
-
-    function relocProd(){
-      var idrelact = $('#idrelact').val();
-    
-    }
-
-
 </script>
 
 

@@ -4,5 +4,6 @@
   <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
   <a href="search.php" class="w3-bar-item w3-button">Search</a>
   <a href="#" class="w3-bar-item w3-button">Orders</a>
-  <a href="#" class="w3-bar-item w3-button">Locations</a>
+  <a href="location.php" class="w3-bar-item w3-button">Locations</a>
+  <a href="index.php" class="w3-bar-item w3-button">Go back...</a>
 </nav>
