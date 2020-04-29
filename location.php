@@ -68,7 +68,7 @@ require_once 'conexion.php';
     <?php
         $connC=conexion();
           $cont = 1;
-          $sql1 = "SELECT l.id_location, l.rows, l.racks, l.shelfs, l.position, rpl.id_location FROM location l LEFT JOIN relprodloc rpl ON l.id_location = rpl.id_location ORDER BY rows ASC, racks ASC, shelfs ASC, position ASC";
+          $sql1 = "SELECT l.id_location, l.rows, l.racks, l.shelfs, l.position, rpl.id_location FROM location l LEFT JOIN relprodloc rpl ON l.id_location = rpl.id_location ORDER BY l.rows ASC, l.racks ASC, l.shelfs ASC, l.position ASC";
           $sqlquery1 = mysqli_query($connC,$sql1);
         mysqli_close($connC);
         while ($row = mysqli_fetch_array($sqlquery1))

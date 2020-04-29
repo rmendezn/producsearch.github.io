@@ -54,24 +54,6 @@
 </div>
 
 <br>
-<div class="w3-container">
-  <div class="w3-center">
-    <div class="w3-row">
-      <div class="w3-col w3-container m3">
-        <h3>Rows: A, B, C...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Racks: 01, 02, 03...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Shelfs: 01, 02, 03...</h3>
-      </div>
-      <div class="w3-col w3-container m3">
-        <h3>Position: 01, 02 ,03...</h3>
-      </div>
-    </div>
-  </div>
-</div>
 <br>
 <div id="prodsearch"></div>
 

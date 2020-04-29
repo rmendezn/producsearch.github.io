@@ -31,6 +31,7 @@ if($count==1){
 	mysqli_close($conn2);
 
 	$id_prod = "0".$row2['id_product'];
+	$position="1";
 	$id_loc = "0".$position;
 
 	$conn3=conexion();

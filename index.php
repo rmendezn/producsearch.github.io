@@ -48,7 +48,8 @@
 
 <div class="w3-row-padding w3-center w3-margin-top">
 <div class="w3-third" onclick="window.open('search.php','_self');">
-  <div class="w3-card w3-container" style="min-height:350px">
+  <div class="w3-card w3-container" style="min-height:350px; box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16), 0 0px 0px 0 rgba(0,0,0,0.12);background-image: url(Cuadrado2-12.png); width:100%; height:100%; background-repeat: no-repeat;background-position: center;">
+  <!--<img src="Cuadrado2.png" style="width:100%; height:100%">-->
   <h3>Search</h3><br>
   <i class="fa fa-search w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
   <p>Use to find a produc</p>
@@ -103,18 +104,71 @@
           </div>
           <div class="w3-row">
             <div class="col-lg-3 col-md-3 col-xs-3">
-              <label for="frmpositionN">Position:</label>
-                <h2 class="w3-center">Slideshows</h2>
-                <div class="w3-content" style="max-width:800px;position:relative">
+              <label for="frmpositionN">Location:</label>
+                <h2 class="w3-center">Display Locations</h2>
+                <table border="1" width="100%">
+                  <tr>
+                    <td width="75%"  align="center">
+                      <div class="w3-container">
+                        <div class="w3-row"  align="center">
 
-                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1.jpg" style="width:100%">
-                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (2).jpg" style="width:100%">
-                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (3).jpg" style="width:100%">
-                <img class="mySlides w3-animate-opacity" src="/producsearch.github.io/images/naufrago1 (4).jpg" style="width:100%">
+                          <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">A</div>
+                          </div>
 
-                <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-                <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">❯</a>
-                </div>
+                           <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">B</div>
+                          </div>
+
+                           <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">C</div>
+                          </div>
+                           <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">D</div>
+                          </div>
+                           <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">E</div>
+                          </div>
+
+                          
+                        </div>
+                      </div>
+                    </td>
+                    <td  align="center">
+                      <div class="w3-container"  align="center">
+                        <div class="w3-row">
+                          <div class="w3-col w3-container m6" style="background-color:white;">
+                            <div class="w3-row w3-container m2" style="background-color:green;">04</div>
+                            <div class="w3-row w3-container m1" style="background-color:green;">03</div>
+                            <div class="w3-row w3-container m2" style="background-color:green;">02</div>
+                            <div class="w3-row w3-container m2" style="background-color:green;">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;">01</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
             </div>
           </div>
         </div>
@@ -582,16 +636,22 @@
 <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
 <script>
 // Side navigation
-function w3_open() {
-  var x = document.getElementById("mySidebar");
-  x.style.width = "100%";
-  x.style.fontSize = "40px";
-  x.style.paddingTop = "10%";
-  x.style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+// function w3_open() {
+//   var x = document.getElementById("mySidebar");
+//   x.style.width = "100%";
+//   x.style.fontSize = "40px";
+//   x.style.paddingTop = "10%";
+//   x.style.display = "block";
+
+//   var y = document.getElementById("mySidebar1");
+//   y.style.width = "100%";
+//   y.style.fontSize = "40py";
+//   y.style.paddingTop = "10%";
+//   y.style.display = "block";
+// }
+// function w3_close() {
+//   document.getElementById("mySidebar").style.display = "none";
+// }
 
 function addproductnew(){
   var product = $('#frmnameN').val();
@@ -651,24 +711,41 @@ function addproductnew(){
 // }
 
 //Slideshows
-var slideIndex = 1;
+// var slideIndex = 1;
+// var slideIndes = 1;
 
-function plusDivs(n) {
-  slideIndex = slideIndex + n;
-  showDivs(slideIndex);
-}
+// function plusDivs(n) {
+//   slideIndex = slideIndex + n;
+//   showDivs(slideIndex);
+// }
 
-function showDivs(n) {
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length} ;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
+// function plusDivs1(n) {
+//   slideIndes = slideIndes + n;
+//   showDivs1(slideIndes);
+// }
 
-showDivs(1);
+// function showDivs(n) {
+//   var x = document.getElementsByClassName("mySlides");
+//   if (n > x.length) {slideIndex = 1}    
+//   if (n < 1) {slideIndex = x.length} ;
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";  
+//   }
+//   x[slideIndex-1].style.display = "block";  
+// }
+
+// function showDivs1(n) {
+// var y = document.getElementsByClassName("mySlidex");
+//   if (n > y.length) {slideIndes = 1}    
+//   if (n < 1) {slideIndes = y.length} ;
+//   for (i = 0; i < y.length; i++) {
+//     y[i].style.display = "none";  
+//   }
+//   y[slideIndes-1].style.display = "block";
+// }
+
+// showDivs(1);
+// showDivs1(1);
 
 // // Progress Bars
 // function move() {
