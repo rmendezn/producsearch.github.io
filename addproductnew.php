@@ -30,13 +30,12 @@ if($count==1){
 	  $row2 = mysqli_fetch_array($sqlquery2);
 	mysqli_close($conn2);
 
-	$id_prod = "0".$row2['id_product'];
-	$position="1";
-	$id_loc = "0".$position;
+	$id_prod = $row2['id_product'];
+	$id_loc = "01";
 
 	$conn3=conexion();
 	  echo $sql3 = "INSERT INTO `relprodloc` (`id_rel`, `id_product`, `id_location`) VALUES (NULL, '$id_prod', '$id_loc')";
-	  //$sqlquery3 = mysqli_query($conn3,$sql3);
+	  $sqlquery3 = mysqli_query($conn3,$sql3);
 	mysqli_close($conn3);
 
 	echo 1;

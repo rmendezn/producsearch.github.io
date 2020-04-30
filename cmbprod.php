@@ -10,7 +10,7 @@ require_once 'conexion.php';
 	$response = array();
 	$cont = 0;
 		while($row = mysqli_fetch_array($result) ){
-			$response = array("id"=>$row['id_product'],"product"=>$row['nameProduct'],"code"=>$row['codeProduct']);
+			$response = array("id"=>$row['id_product'],"product"=>utf8_encode($row['nameProduct']),"code"=>$row['codeProduct']);
 			array_push($arrDetalles, $response);
 			$cont++;
 		}
