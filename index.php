@@ -42,7 +42,7 @@
 </div> -->
 <div>
   <div>
-    <button class="btn btn-success" style="align-content: left" data-toggle="modal" data-target="#modalproductnew">+ New Product</button>
+    <button class="btn btn-success" style="align-content: left" data-toggle="modal" data-target="#modalproductnew" onclick="modalblank();">+ New Product</button>
   </div>
 </div>
 
@@ -105,6 +105,7 @@
           <div class="w3-row">
             <div class="col-lg-3 col-md-3 col-xs-3">
               <label for="frmpositionN">Location:</label>
+                <input type="text" id="frmpositionN" value="A010101" disabled></input>
                 <h2 class="w3-center">Display Locations</h2>
                 <table border="1" width="100%">
                   <tr>
@@ -112,57 +113,68 @@
                       <div class="w3-container">
                         <div class="w3-row"  align="center">
 
+                          <?php
+
+                          ?>
+
+                          <div class="w3-col w3-container" style="background-color:white;">
+                            <?php
+                            include "tbllocations.php";
+                            ?>
+                            <!-- <div class="w3-row w3-container m2" style="padding: 0px" onclick="selectbox('11');">
+                              <input type="text" class="boxfill" id="11" style="width: 100%; text-align: center; background-color: yellow; border:0px" value="04"></input>
+                            </div>
+                            <div class="w3-row w3-container m1" style="padding: 0px" onclick="selectbox('12');">
+                              <input type="text" class="boxfill" id="12" style="width: 100%; text-align: center; background-color: yellow; border:0px" value="03"></input>
+                            </div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="13" onclick="selectbox('13');">02</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="14" onclick="selectbox('14');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="A">A</div>
+                          </div>
+
                           <div class="w3-col w3-container m2" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">A</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="21" onclick="selectbox('21');">04</div>
+                            <div class="w3-row w3-container m1 boxfill" style="background-color:yellow;" id="22" onclick="selectbox('22');">03</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="23" onclick="selectbox('23');">02</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="24" onclick="selectbox('24');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="B">B</div>
                           </div>
+                          <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="31" onclick="selectbox('31');">04</div>
+                            <div class="w3-row w3-container m1 boxfill" style="background-color:yellow;" id="32" onclick="selectbox('32');">03</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="33" onclick="selectbox('33');">02</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="34" onclick="selectbox('34');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="C">C</div>
+                          </div>
+                          <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="41" onclick="selectbox('41');">04</div>
+                            <div class="w3-row w3-container m1 boxfill" style="background-color:yellow;" id="42" onclick="selectbox('42');">03</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="43" onclick="selectbox('43');">02</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="44" onclick="selectbox('44');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="D">D</div>
+                          </div>
+                          <div class="w3-col w3-container m2" style="background-color:white;">
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="51" onclick="selectbox('51');">04</div>
+                            <div class="w3-row w3-container m1 boxfill" style="background-color:yellow;" id="52" onclick="selectbox('52');">03</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="53" onclick="selectbox('53');">02</div>
+                            <div class="w3-row w3-container m2 boxfill" style="background-color:yellow;" id="54" onclick="selectbox('54');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="E">E</div>
+                          </div> -->
 
-                           <div class="w3-col w3-container m2" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">B</div>
-                          </div>
-
-                           <div class="w3-col w3-container m2" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">C</div>
-                          </div>
-                           <div class="w3-col w3-container m2" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">D</div>
-                          </div>
-                           <div class="w3-col w3-container m2" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:yellow;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:yellow;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">E</div>
-                          </div>
-
-                          
                         </div>
                       </div>
                     </td>
                     <td  align="center">
                       <div class="w3-container"  align="center">
                         <div class="w3-row">
-                          <div class="w3-col w3-container m6" style="background-color:white;">
-                            <div class="w3-row w3-container m2" style="background-color:green;">04</div>
-                            <div class="w3-row w3-container m1" style="background-color:green;">03</div>
-                            <div class="w3-row w3-container m2" style="background-color:green;">02</div>
-                            <div class="w3-row w3-container m2" style="background-color:green;">01</div>
-                            <div class="w3-row w3-container m2" style="background-color:white;">01</div>
+                          <div class="w3-col w3-container m6" style="background-color:white; align-content: center;">
+                            <div class="w3-row w3-container m2 boxfill1" style="background-color:green;" id="B11" onclick="selectbox1('B11');">04</div>
+                            <div class="w3-row w3-container m1 boxfill1" style="background-color:green;" id="B12" onclick="selectbox1('B12');">03</div>
+                            <div class="w3-row w3-container m2 boxfill1" style="background-color:green;" id="B13" onclick="selectbox1('B13');">02</div>
+                            <div class="w3-row w3-container m2 boxfill1" style="background-color:green;" id="B14" onclick="selectbox1('B14');">01</div>
+                            <div class="w3-row w3-container m2" style="background-color:white;" id="B15">
+                              <input type="text" id="B151" width="90%"></input>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -682,6 +694,64 @@ function addproductnew(){
   });
 }
 
+function selectbox(idbox){
+  var i = 0;
+  var j = 0;
+  var idboxf = 0;
+  $(".boxfill").prop('selected',false);
+  $(".boxfill").css({'background-color':'yellow'});
+  for(i=1; i<6;i++){
+    for(j=1; j<5; j++){
+      var idboxf= i+""+j;
+      if(idbox==idboxf){
+        if ($("#"+i+j).prop('selected')==true){
+          $("#"+i+j).css({'background-color':'yellow'});
+          $("#"+i+j).prop('selected',false);
+          $("#B151").val("");
+          var idbox = 0;
+        }else{
+          $("#"+i+j).css({'background-color':'yellow'});
+          $("#"+i+j).css({'background-color':'green'});
+          $("#"+i+j).prop('selected',true);
+          $("#B151").val($("#"+i+j).val());
+          var idbox = 0;
+        }
+      }
+    }
+  }
+}
+
+
+function selectbox1(idbox1){
+  console.log("Der");
+  var i = 0;
+  var j = 0;
+  var idboxf = 0;
+  $(".boxfill1").prop('selected',false);
+  for(i=1; i<2; i++){
+    for(j=1; j<5; j++){
+      var idboxf= "B"+i+""+j;
+      if(idbox1==idboxf){
+        if ($("#B"+i+j).prop('selected')==true){
+          $("#B"+i+j).css({'background-color':'green'});
+          $("#B"+i+j).prop('selected',false);
+          var idbox1 = 0;
+        }else{
+          $(".boxfill1").css({'background-color':'green'});
+          $("#B"+i+j).css({'background-color':'red'});
+          $("#B"+i+j).prop('selected',true);
+          var idbox1 = 0;
+        }
+      }
+    }
+  }
+}
+
+function modalblank(){
+  $('#frmnameN').val("");
+  $('#frmcodeN').val("");
+  $('#frmpositionN').val("");
+}
 // Tabs
 // function openCity(evt, cityName) {
 //   var i;

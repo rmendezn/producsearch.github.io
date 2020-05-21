@@ -60,7 +60,7 @@ require_once 'conexion.php';
         <th>Row</th>
         <th>Rack</th>
         <th>Shelf</th>
-        <th>Position</th>
+        <!--<th>Position</th>-->
         <th>Status</th>
       </tr>
     </thead>
@@ -68,7 +68,7 @@ require_once 'conexion.php';
     <?php
         $connC=conexion();
           $cont = 1;
-          $sql1 = "SELECT l.id_location, l.rows, l.racks, l.shelfs, l.position, rpl.id_location FROM location l LEFT JOIN relprodloc rpl ON l.id_location = rpl.id_location ORDER BY l.rows ASC, l.racks ASC, l.shelfs ASC, l.position ASC";
+          $sql1 = "SELECT l.id_location, l.rows, l.racks, l.shelfs, l.position, rpl.id_location FROM location l LEFT JOIN relprodloc rpl ON l.id_location = rpl.id_location GROUP BY l.rows, l.racks, rpl.id_location ORDER BY l.rows ASC, l.racks ASC, l.shelfs ASC, l.position ASC";
           $sqlquery1 = mysqli_query($connC,$sql1);
         mysqli_close($connC);
         while ($row = mysqli_fetch_array($sqlquery1))
@@ -77,7 +77,7 @@ require_once 'conexion.php';
         echo "<td align='center'>".$row['rows']."</td>";
         echo "<td align='center'>".$row["racks"]."</td>";
         echo "<td align='center'>".$row['shelfs']."</td>";
-        echo "<td align='center'>".$row['position']."</td>";
+        /*echo "<td align='center' hidden>".$row['position']."</td>";*/
         if($row['id_location']<>NULL){
           echo "<td align='center'><i class='fa fa-ban'></i></td>";
         }else{
@@ -148,19 +148,7 @@ require_once 'conexion.php';
           </div>
           <div class="row">
             <div class="col-lg-3 col-md-3 col-xs-3">
-              <label for="frmposition">Position</label>
-              <select class="form-control" name="frmposition" id="frmposition">
-                 <option value="01">01</option>
-                 <option value="02">02</option>
-                 <option value="03">03</option>
-                 <option value="04">04</option>
-                 <option value="05">05</option>
-                 <option value="06">06</option>
-                 <option value="07">07</option>
-                 <option value="08">08</option>
-                 <option value="09">09</option>
-                 <option value="10">10</option>
-              </select>
+              <input type="text" id="frmposition" value="01" hidden></input>
             </div>
           </div>
         </div>
@@ -781,7 +769,7 @@ $('#TblLoc').DataTable({
               alert("The Location was added successful");
               location.reload(true);
             }else{
-              alert("The location didn't was added. Please check !!!!")
+              alert("The location didn't was added.\n The location exist or is incorrect.\n Please check !!!!")
             }
           }
       });

@@ -27,7 +27,7 @@ $id=$_GET['id'];
         {
         echo "<tr>";
         echo "<td align='center' id='idrel' hidden>".$row['id_rel']."</td>";
-        echo "<td align='center'>".utf8_encode($row['nameProduct'])."</td>";
+        echo "<td align='center'>".$row['nameProduct']."</td>";
         echo "<td align='center'>".$row['rows']."</td>";
         echo "<td align='center'>".$row["racks"]."</td>";
         echo "<td align='center'>".$row['shelfs']."</td>";

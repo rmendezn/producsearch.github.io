@@ -29,8 +29,11 @@ if($count==1){
 	  $sqlquery2 = mysqli_query($conn2,$sql2);
 	  $row2 = mysqli_fetch_array($sqlquery2);
 	mysqli_close($conn2);
-
-	$id_prod = $row2['id_product'];
+	if($row2['id_product']<10){
+		$id_prod = "0".$row2['id_product'];
+	}else{
+		$id_prod = $row2['id_product'];
+	}
 	$id_loc = "01";
 
 	$conn3=conexion();

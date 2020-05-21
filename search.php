@@ -71,8 +71,16 @@
             <input type='text' id='frmnameProdC' disabled></input>
           </div>
           <div class="w3-row">
+            <label for="frmcodeProdC">Product Code:</label>
+            <input type='text' id='frmcodeProdC' disabled></input>
+          </div>
+          <div class="w3-row">
             <label for="frmlocationC">Actual Location:</label>
             <input type='text' id='frmlocationC' disabled></input>
+          </div>
+          <div class="w3-row">
+            <label for="frmnewlocationC">New Location:</label>
+            <input type='text' id='frmnewlocationC' disabled></input>
           </div>
         </div>
       </div>
@@ -598,7 +606,9 @@
                 var id_prod = cadena[0];
                 var id_nombre = cadena[2];
                 if (id_nombre == value) {
-                    var id_prod = '0'+id_prod;
+                    if(id_prod<10){
+                      var id_prod = '0'+id_prod;
+                    }
                     $('#prodsearch').load('prodsearch.php?id='+id_prod);
                     $('#frmprod').val(id_nombre);
                   break;                
@@ -638,41 +648,19 @@
     }
 
     function loadrelprod(){
-      var idrel = $('#idrel').val();
+      var idrel = document.getElementById("idrel").innerHTML;
       cadena = "idrel=" + idrel;
       $.ajax({
         type:"POST",
         url:"findrel.php",
         data:cadena,
         success:function(r){
-          if(r){
+          //console.log(r);
             d=r.split('||');
-            $('#frmtitulo').val(d[0]);
-            $('#frminformacion').val(d[1]);
-            $('#frmfechainicio').val(d[2]);
-            $('#frmfechafin').val(d[3]);
-            if(d[4]=="0"){
-              document.getElementById("frmmostrar2").checked=false;
-              document.getElementById("textusuario2").hidden=true;
-              $('#textusuario2').val("0");
-            }else{
-              document.getElementById("frmmostrar2").checked=true;
-              document.getElementById("textusuario2").hidden=false;
-              $('#textusuario2').val(d[4]);
-            }
-            $('#frmmostrar').val(d[5]);
-            if(d[5]=='0'){
-              document.getElementById("frmmostrar1").checked =false;
-            }else{
-              document.getElementById("frmmostrar1").checked =true;
-            }
-            $('#frmidmensaje').val(d[6]);
-      
-          }else{
-            alert("No se encontro el Mensaje!!!");
-          }
+            $('#frmnameProdC').val(d[0]);
+            $('#frmcodeProdC').val(d[1]);
+            $('#frmlocationC').val(d[2]+"-"+d[3]+"-"+d[4]+"-"+d[5]);
         }
-
       });
     }
 
